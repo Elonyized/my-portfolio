@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog · Sule ThankGod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .blog-hero { padding: calc(var(--nav-h) + 64px) 0 64px; }
+    .blog-hero h1 { font-family: var(--display); font-size: clamp(32px,5vw,60px); font-weight:700; letter-spacing:-2px; line-height:1.1; }
+    .post-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:28px; padding-bottom:80px; }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">&lt;<span>AR</span>/&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#portfolio">Work</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle theme"><i class="bi bi-sun"></i></button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" id="mobile-nav-close"><i class="bi bi-x-lg"></i></button>
+  <a href="../index.html">Home</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#portfolio">Work</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<div class="blog-hero">
+  <div class="container">
+    <p class="section-eyebrow">Thoughts &amp; tutorials</p>
+    <h1>The Blog</h1>
+    <p style="color:var(--muted);margin-top:16px;max-width:520px">Practical deep-dives on web development, design systems, and building things people use.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="post-grid">
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-database-check"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">PHP &amp; MySQL</span><span class="blog-date">June 10, 2026</span></div>
+        <h2 class="blog-title">PDO Best Practices Every PHP Developer Should Know</h2>
+        <p class="blog-excerpt">How to handle prepared statements, binding types, and error modes so your database layer is both secure and maintainable.</p>
+        <a href="pdo-best-practices.html" class="blog-read-more">Read article <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-rulers"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">UI Design</span><span class="blog-date">May 28, 2026</span></div>
+        <h2 class="blog-title">Why Most Design Systems Fail (and What to Do Instead)</h2>
+        <p class="blog-excerpt">Lessons from building Bloom — the component library that actually got adopted by four product teams after the previous one failed.</p>
+        <a href="design-systems.html" class="blog-read-more">Read article <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-speedometer2"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">Performance</span><span class="blog-date">May 12, 2026</span></div>
+        <h2 class="blog-title">From 42 to 96: A Lighthouse Score Rescue Story</h2>
+        <p class="blog-excerpt">Real-world case study on image optimisation, layout shift, render-blocking resources, and the five changes that moved the needle most.</p>
+        <a href="lighthouse-optimisation.html" class="blog-read-more">Read article <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="container footer-inner">
+    <span class="footer-logo">&lt;<span>AR</span>/&gt;</span>
+    <p class="footer-copy">© 2026 Sule ThankGod</p>
+    <div class="footer-socials">
+      <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

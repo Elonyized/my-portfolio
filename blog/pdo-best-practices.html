@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDO Best Practices · Sule ThankGod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .post-hero { padding: calc(var(--nav-h) + 64px) 0 48px; }
+    .post-hero .section-eyebrow { margin-bottom:16px; }
+    .post-hero h1 { font-family:var(--display); font-size:clamp(28px,4vw,52px); font-weight:700; letter-spacing:-1.5px; line-height:1.1; max-width:760px; }
+    .post-meta { display:flex; align-items:center; gap:20px; margin-top:20px; color:var(--muted); font-size:14px; flex-wrap:wrap; }
+    .post-body { max-width:720px; margin:0 auto; padding: 0 24px 80px; }
+    .post-body h2 { font-family:var(--display); font-size:24px; font-weight:700; letter-spacing:-0.5px; margin:48px 0 16px; }
+    .post-body p { color:var(--muted); line-height:1.85; margin-bottom:20px; }
+    .post-body code { font-family:var(--mono); font-size:13px; background:var(--surface); padding:2px 8px; border-radius:4px; color:var(--primary); }
+    .post-body pre { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:24px; overflow-x:auto; margin:24px 0; }
+    .post-body pre code { background:none; padding:0; color:var(--text); font-size:13px; line-height:1.8; }
+    .post-body ul { color:var(--muted); padding-left:20px; margin-bottom:20px; }
+    .post-body li { margin-bottom:8px; line-height:1.75; }
+    .post-divider { border:none; border-top:1px solid var(--border); margin:48px 0; }
+    .related-posts { padding:0 0 80px; }
+    .related-posts h3 { font-family:var(--display); font-size:22px; font-weight:700; letter-spacing:-0.5px; margin-bottom:32px; }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">&lt;<span>AR</span>/&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle theme"><i class="bi bi-sun"></i></button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" id="mobile-nav-close"><i class="bi bi-x-lg"></i></button>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Blog</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<div class="post-hero">
+  <div class="container">
+    <p class="section-eyebrow">PHP &amp; MySQL</p>
+    <h1>PDO Best Practices Every PHP Developer Should Know</h1>
+    <div class="post-meta">
+      <span><i class="bi bi-calendar3"></i> June 10, 2026</span>
+      <span><i class="bi bi-clock"></i> 8 min read</span>
+      <span><i class="bi bi-person"></i> Sule ThankGod</span>
+    </div>
+  </div>
+</div>
+
+<article class="post-body">
+  <p>PDO (PHP Data Objects) is the right way to talk to databases in PHP. Yet most tutorials cover only the surface — basic <code>prepare()</code> and <code>execute()</code> calls — and leave out the details that separate a secure, maintainable data layer from one that quietly causes pain for months.</p>
+
+  <p>This post covers the things I wish I had known when I started: proper error modes, explicit binding types, persistent connections, and the patterns that make PDO a genuine pleasure to work with.</p>
+
+  <h2>1. Always set the error mode</h2>
+  <p>By default PDO silently swallows errors, which makes debugging a nightmare. The first thing you should do after creating a connection is switch to exception mode:</p>
+  <pre><code>$pdo = new PDO($dsn, $user, $pass, [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+]);
+</code></pre>
+  <p>Setting <code>ATTR_EMULATE_PREPARES</code> to <code>false</code> forces PDO to use true prepared statements on the database server instead of client-side emulation — this gives you real parameterisation and real type safety.</p>
+
+  <h2>2. Bind with explicit types</h2>
+  <p>When using <code>LIMIT</code> and <code>OFFSET</code>, PDO can't infer the integer type from PHP's loosely typed system. Bind explicitly:</p>
+  <pre><code>$stmt = $pdo->prepare('SELECT * FROM property LIMIT :limit OFFSET :offset');
+$stmt->bindValue(':limit',  $limit,  PDO::PARAM_INT);
+$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+</code></pre>
+  <p>Skipping this causes MySQL to receive the integers as strings, which breaks the query silently in older MySQL versions and can cause surprising results in newer ones.</p>
+
+  <h2>3. Wrap your connection in a singleton</h2>
+  <p>Opening a new <code>PDO</code> connection on every page request is wasteful. A simple singleton ensures a single connection per process:</p>
+  <pre><code>class DB {
+    private static ?PDO $instance = null;
+
+    public static function conn(): PDO {
+        if (self::$instance === null) {
+            $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
+            self::$instance = new PDO($dsn, DB_USER, DB_PASS, [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ]);
+        }
+        return self::$instance;
+    }
+}
+</code></pre>
+
+  <h2>4. Keep SQL in class methods, not in page files</h2>
+  <p>Your page files (views) should never contain raw SQL. Put all database logic in a dedicated class method. This makes queries testable, searchable, and easy to optimise later without hunting through templates.</p>
+
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Always use <code>ERRMODE_EXCEPTION</code> — silent failures cost you hours of debugging.</li>
+    <li>Disable prepared-statement emulation for real parameterisation.</li>
+    <li>Bind integers with <code>PDO::PARAM_INT</code> — especially for <code>LIMIT</code> and <code>OFFSET</code>.</li>
+    <li>Centralise your connection in a singleton class.</li>
+    <li>SQL belongs in model/repository classes, not in view files.</li>
+  </ul>
+
+  <hr class="post-divider" />
+
+  <p style="text-align:center">
+    <a href="../index.html#contact" class="btn-primary" style="display:inline-flex">
+      <i class="bi bi-chat-dots"></i> Have a question? Get in touch
+    </a>
+  </p>
+</article>
+
+<!-- Related posts -->
+<div class="container related-posts">
+  <h3>Related articles</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-rulers"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">UI Design</span><span class="blog-date">May 28, 2026</span></div>
+        <h3 class="blog-title">Why Most Design Systems Fail</h3>
+        <a href="design-systems.html" class="blog-read-more">Read <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-speedometer2"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">Performance</span><span class="blog-date">May 12, 2026</span></div>
+        <h3 class="blog-title">From 42 to 96: Lighthouse Rescue</h3>
+        <a href="lighthouse-optimisation.html" class="blog-read-more">Read <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="container footer-inner">
+    <span class="footer-logo">&lt;<span>AR</span>/&gt;</span>
+    <p class="footer-copy">© 2026 Sule ThankGod</p>
+    <div class="footer-socials">
+      <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

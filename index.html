@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sule ThankGod — Full-Stack Developer & UI/UX Enthusiast. Building products that matter." />
+  <title>Sule ThankGod · Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ============================================================ NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">&lt;<span>AR</span>/&gt;</a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+        <i class="bi bi-sun"></i>
+      </button>
+      <a href="assets/downloads/resume.pdf" download class="nav-cta">Download CV</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav Drawer -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+    <i class="bi bi-x-lg"></i>
+  </button>
+  <a href="#about" data-section="about">About</a>
+  <a href="#skills" data-section="skills">Skills</a>
+  <a href="#resume" data-section="resume">Resume</a>
+  <a href="#portfolio" data-section="portfolio">Work</a>
+  <a href="#services" data-section="services">Services</a>
+  <a href="#blog" data-section="blog">Blog</a>
+  <a href="#contact" data-section="contact">Contact</a>
+</nav>
+
+
+<!-- ============================================================ HERO -->
+<section id="hero">
+  <div class="hero-decor"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Text -->
+      <div>
+        <p class="hero-label" data-aos="fade-up">👋 Available for freelance</p>
+        <h1 class="hero-name" data-aos="fade-up" data-aos-delay="100">
+          Sule<br><span class="last">ThankGod</span>
+        </h1>
+        <div class="hero-typed-wrap" data-aos="fade-up" data-aos-delay="200">
+          I'm a <span id="typed-text"></span><span class="cursor"></span>
+        </div>
+        <p class="hero-bio" data-aos="fade-up" data-aos-delay="300">
+          I craft fast, accessible, and delightful digital experiences — from pixel-perfect UIs to rock-solid back-end systems. Based in Lagos, building for the world.
+        </p>
+        <div class="hero-actions" data-aos="fade-up" data-aos-delay="380">
+          <a href="#portfolio" class="btn-primary">
+            <i class="bi bi-grid-3x3-gap"></i> View My Work
+          </a>
+          <a href="#contact" class="btn-outline">
+            <i class="bi bi-chat-dots"></i> Hire Me
+          </a>
+        </div>
+        <div class="hero-socials" data-aos="fade-up" data-aos-delay="440">
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="hero-img-wrap" data-aos="fade-left" data-aos-delay="200">
+        <div class="hero-img-ring">
+          <div class="hero-img-inner">
+            <!-- Replace with: <img src="assets/images/profile/photo.jpg" alt="Alex Rivera"> -->
+            <i class="bi bi-person-bounding-box"></i>
+          </div>
+        </div>
+        <div class="hero-badge badge-tl">
+          <span class="dot"></span>
+          Available to work
+        </div>
+        <div class="hero-badge badge-br">
+          <i class="bi bi-star-fill" style="color:#FFB800;font-size:12px"></i>
+          4.9 · 10+ clients
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ ABOUT -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Image column -->
+      <div data-aos="fade-right">
+        <div class="about-img-wrap">
+          <div class="about-img">
+            <i class="bi bi-person-video3"></i>
+          </div>
+          <div class="about-exp-badge">
+            <span class="num"><span data-count="2" data-suffix="+">0+</span></span>
+            <span class="label">Years Exp.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text column -->
+      <div data-aos="fade-left">
+        <div class="section-header" style="margin-bottom:28px">
+          <p class="section-eyebrow">Who I am</p>
+          <h2 class="section-title">Turning ideas into<br>elegant software</h2>
+        </div>
+        <div class="about-text">
+          <p>I'm a full-stack developer with 5+ years of experience building web applications that users love. I care deeply about performance, accessibility, and design — the three pillars that separate good software from great software.</p>
+          <p>When I'm not pushing commits, you'll find me contributing to open-source projects, writing about technology, or exploring the intersection of code and creativity.</p>
+
+          <div class="about-info-grid">
+            <div class="about-info-item">
+              <span class="about-info-label">Name</span>
+              <span class="about-info-value">Sule ThankGod</span>
+            </div>
+            <div class="about-info-item">
+              <span class="about-info-label">Location</span>
+              <span class="about-info-value">Lagos, Nigeria</span>
+            </div>
+            <div class="about-info-item">
+              <span class="about-info-label">Email</span>
+              <span class="about-info-value">talktougwaibb@gmail.com</span>
+            </div>
+            <div class="about-info-item">
+              <span class="about-info-label">Freelance</span>
+              <span class="about-info-value" style="color:#22c55e">Available ✓</span>
+            </div>
+            <div class="about-info-item">
+              <span class="about-info-label">Phone</span>
+              <span class="about-info-value">+234 816 027 4862</span>
+            </div>
+            <div class="about-info-item">
+              <span class="about-info-label">Languages</span>
+              <span class="about-info-value">English, Igbo</span>
+            </div>
+          </div>
+
+          <a href="assets/downloads/resume.pdf" download class="btn-primary" style="width:fit-content">
+            <i class="bi bi-download"></i> Download Resume
+          </a>
+        </div>
+
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num" data-count="80" data-suffix="+">0+</div>
+            <div class="label">Projects Done</div>
+          </div>
+          <div class="about-stat">
+            <div class="num" data-count="60" data-suffix="+">0+</div>
+            <div class="label">Happy Clients</div>
+          </div>
+          <div class="about-stat">
+            <div class="num" data-count="12" data-suffix="k">0k</div>
+            <div class="label">GitHub Stars</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ SKILLS -->
+<section id="skills" class="section-pad">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-eyebrow">What I know</p>
+      <h2 class="section-title">Skills &amp; expertise</h2>
+      <p class="section-sub">A constantly growing toolkit — built through years of shipping real products and learning from the best in the industry.</p>
+    </div>
+
+    <div class="skills-layout">
+
+      <!-- Technical skills (bar) -->
+      <div data-aos="fade-right">
+        <p class="skill-group-title">Technical Skills</p>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">HTML / CSS / JavaScript / PHP</span>
+            <span class="skill-pct">96%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-pct="96"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">React / Next.js</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-pct="88"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Node.js / PHP</span>
+            <span class="skill-pct">82%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-pct="82"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">MySQL / PostgreSQL</span>
+            <span class="skill-pct">78%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-pct="78"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">UI/UX Design (Figma)</span>
+            <span class="skill-pct">74%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-pct="74"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">DevOps / Cloud (AWS, Docker)</span>
+            <span class="skill-pct">65%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div>
+        </div>
+      </div>
+
+      <!-- Professional skills (circular) -->
+      <div data-aos="fade-left">
+        <p class="skill-group-title">Professional Skills</p>
+
+        <div class="circular-skills">
+
+          <!-- Team Leadership -->
+          <div class="circular-item">
+            <svg class="circular-chart" viewBox="0 0 80 80">
+              <circle class="circular-bg" cx="40" cy="40" r="35"/>
+              <circle class="circular-arc" cx="40" cy="40" r="35" data-pct="90"/>
+              <text class="circular-label" x="40" y="44" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="700" fill="currentColor">90%</text>
+            </svg>
+            <p class="circular-sublabel">Team Leadership</p>
+          </div>
+
+          <!-- Communication -->
+          <div class="circular-item">
+            <svg class="circular-chart" viewBox="0 0 80 80">
+              <circle class="circular-bg" cx="40" cy="40" r="35"/>
+              <circle class="circular-arc" cx="40" cy="40" r="35" data-pct="85" style="stroke:#FF6B6B"/>
+              <text class="circular-label" x="40" y="44" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="700" fill="currentColor">85%</text>
+            </svg>
+            <p class="circular-sublabel">Communication</p>
+          </div>
+
+          <!-- Problem Solving -->
+          <div class="circular-item">
+            <svg class="circular-chart" viewBox="0 0 80 80">
+              <circle class="circular-bg" cx="40" cy="40" r="35"/>
+              <circle class="circular-arc" cx="40" cy="40" r="35" data-pct="94"/>
+              <text class="circular-label" x="40" y="44" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="700" fill="currentColor">94%</text>
+            </svg>
+            <p class="circular-sublabel">Problem Solving</p>
+          </div>
+
+          <!-- Project Mgmt -->
+          <div class="circular-item">
+            <svg class="circular-chart" viewBox="0 0 80 80">
+              <circle class="circular-bg" cx="40" cy="40" r="35"/>
+              <circle class="circular-arc" cx="40" cy="40" r="35" data-pct="80" style="stroke:#FF6B6B"/>
+              <text class="circular-label" x="40" y="44" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="700" fill="currentColor">80%</text>
+            </svg>
+            <p class="circular-sublabel">Project Mgmt</p>
+          </div>
+
+          <!-- Creativity -->
+          <div class="circular-item">
+            <svg class="circular-chart" viewBox="0 0 80 80">
+              <circle class="circular-bg" cx="40" cy="40" r="35"/>
+              <circle class="circular-arc" cx="40" cy="40" r="35" data-pct="88"/>
+              <text class="circular-label" x="40" y="44" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="700" fill="currentColor">88%</text>
+            </svg>
+            <p class="circular-sublabel">Creativity</p>
+          </div>
+
+          <!-- Research -->
+          <div class="circular-item">
+            <svg class="circular-chart" viewBox="0 0 80 80">
+              <circle class="circular-bg" cx="40" cy="40" r="35"/>
+              <circle class="circular-arc" cx="40" cy="40" r="35" data-pct="76" style="stroke:#FF6B6B"/>
+              <text class="circular-label" x="40" y="44" text-anchor="middle" font-family="Space Grotesk" font-size="14" font-weight="700" fill="currentColor">76%</text>
+            </svg>
+            <p class="circular-sublabel">Research</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ RESUME -->
+<section id="resume" class="section-pad">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-eyebrow">My journey</p>
+      <h2 class="section-title">Education &amp; experience</h2>
+    </div>
+
+    <div class="resume-cols">
+
+      <!-- Education -->
+      <div data-aos="fade-right">
+        <h3 class="resume-col-title">
+          <i class="bi bi-mortarboard-fill"></i> Education
+        </h3>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <p class="timeline-period">2018 – 2022</p>
+            <p class="timeline-role">B.Sc. Computer Science</p>
+            <p class="timeline-org">University of Lagos</p>
+            <p class="timeline-desc">Graduated with First Class Honours. Focused on software engineering, algorithms, and data structures. Led the departmental programming team.</p>
+          </div>
+
+          <div class="timeline-item">
+            <p class="timeline-period">2022</p>
+            <p class="timeline-role">AWS Solutions Architect Associate</p>
+            <p class="timeline-org">Amazon Web Services</p>
+            <p class="timeline-desc">Certified in designing distributed cloud architectures. Hands-on labs in EC2, S3, RDS, Lambda, and VPC networking.</p>
+          </div>
+
+          <div class="timeline-item">
+            <p class="timeline-period">2023</p>
+            <p class="timeline-role">Professional UX Design Certificate</p>
+            <p class="timeline-org">Google / Coursera</p>
+            <p class="timeline-desc">Completed 7-course program covering user research, wireframing, prototyping, and usability testing with Figma.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div data-aos="fade-left">
+        <h3 class="resume-col-title">
+          <i class="bi bi-briefcase-fill"></i> Experience
+        </h3>
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <p class="timeline-period">2023 – Present</p>
+            <p class="timeline-role">Senior Full-Stack Developer</p>
+            <p class="timeline-org">TechVenture Labs · Lagos</p>
+            <p class="timeline-desc">Lead development of a multi-tenant SaaS platform serving 12,000+ users. Architected a microservices migration that improved response times by 40%.</p>
+          </div>
+
+          <div class="timeline-item">
+            <p class="timeline-period">2021 – 2023</p>
+            <p class="timeline-role">Front-End Developer</p>
+            <p class="timeline-org">BrightPixel Studio · Remote</p>
+            <p class="timeline-desc">Built 20+ client websites and e-commerce stores. Introduced component-driven design with React and reduced average page load by 60% via Lighthouse optimization.</p>
+          </div>
+
+          <div class="timeline-item">
+            <p class="timeline-period">2020 – 2021</p>
+            <p class="timeline-role">Web Development Intern</p>
+            <p class="timeline-org">StartupNest Abuja</p>
+            <p class="timeline-desc">Contributed to MVP development for two early-stage startups. Gained deep experience with PHP, MySQL, and RESTful API integration.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ PORTFOLIO -->
+<section id="portfolio" class="section-pad">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-eyebrow">Selected work</p>
+      <h2 class="section-title">Projects I'm proud of</h2>
+      <p class="section-sub">A curated selection spanning web applications, design systems, and open-source tools.</p>
+    </div>
+
+    <div class="portfolio-filters" data-aos="fade-up" data-aos-delay="100">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web Apps</button>
+      <button class="filter-btn" data-filter="design">UI/UX</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+      <button class="filter-btn" data-filter="oss">Open Source</button>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Card 1 -->
+      <div class="portfolio-card" data-cat="web" data-aos="fade-up" data-aos-delay="100">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#1a1a3e,#2d2b66)">
+          <i class="bi bi-houses-fill" style="font-size:52px;color:#6C63FF"></i>
+          <div class="portfolio-overlay">
+            <a href="#" aria-label="Live demo"><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">PHP</span>
+            <span class="portfolio-tag">MySQL</span>
+            <span class="portfolio-tag">Bootstrap</span>
+          </div>
+          <h3 class="portfolio-title">Otukpo Housing Platform</h3>
+          <p class="portfolio-desc">Multi-role property rental platform connecting tenants, landlords, and agents with a full admin panel and real-time listings.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="portfolio-card" data-cat="web" data-aos="fade-up" data-aos-delay="160">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#1a2e1a,#1e4a1e)">
+          <i class="bi bi-cart4" style="font-size:52px;color:#22c55e"></i>
+          <div class="portfolio-overlay">
+            <a href="#" aria-label="Live demo"><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">React</span>
+            <span class="portfolio-tag">Node.js</span>
+            <span class="portfolio-tag">MongoDB</span>
+          </div>
+          <h3 class="portfolio-title">AgriConnect Marketplace</h3>
+          <p class="portfolio-desc">Farm-to-consumer e-commerce platform supporting 3,000+ farmers across West Africa with SMS payment integration.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="portfolio-card" data-cat="design" data-aos="fade-up" data-aos-delay="220">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#2e1a2e,#4a1a3a)">
+          <i class="bi bi-palette2" style="font-size:52px;color:#FF6B6B"></i>
+          <div class="portfolio-overlay">
+            <a href="#" aria-label="Figma"><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="#" aria-label="Case study"><i class="bi bi-file-text"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Figma</span>
+            <span class="portfolio-tag">Design System</span>
+          </div>
+          <h3 class="portfolio-title">Bloom Design System</h3>
+          <p class="portfolio-desc">A comprehensive design system with 180+ components, tokens, and documentation — adopted by 4 product teams.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="portfolio-card" data-cat="mobile" data-aos="fade-up" data-aos-delay="100">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#1a2a2e,#0e3a4a)">
+          <i class="bi bi-phone-vibrate" style="font-size:52px;color:#38bdf8"></i>
+          <div class="portfolio-overlay">
+            <a href="#" aria-label="App Store"><i class="bi bi-apple"></i></a>
+            <a href="#" aria-label="Play Store"><i class="bi bi-google-play"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">React Native</span>
+            <span class="portfolio-tag">Expo</span>
+          </div>
+          <h3 class="portfolio-title">PayTrack Budget App</h3>
+          <p class="portfolio-desc">Personal finance tracker with AI-powered spending categorization and bill reminders. 4.8★ on both stores.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="portfolio-card" data-cat="oss" data-aos="fade-up" data-aos-delay="160">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#2e2a10,#4a3e10)">
+          <i class="bi bi-braces-asterisk" style="font-size:52px;color:#FFB800"></i>
+          <div class="portfolio-overlay">
+            <a href="#" aria-label="npm"><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">TypeScript</span>
+            <span class="portfolio-tag">OSS</span>
+          </div>
+          <h3 class="portfolio-title">FormKit Lite</h3>
+          <p class="portfolio-desc">Zero-dependency form validation library for vanilla JS. 1.2k GitHub stars, 40k weekly npm downloads.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="portfolio-card" data-cat="web" data-aos="fade-up" data-aos-delay="220">
+        <div class="portfolio-thumb" style="background: linear-gradient(135deg,#2e1a1a,#4a2020)">
+          <i class="bi bi-bar-chart-line-fill" style="font-size:52px;color:#FF6B6B"></i>
+          <div class="portfolio-overlay">
+            <a href="#" aria-label="Live demo"><i class="bi bi-box-arrow-up-right"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+        <div class="portfolio-info">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Next.js</span>
+            <span class="portfolio-tag">Prisma</span>
+            <span class="portfolio-tag">Charts.js</span>
+          </div>
+          <h3 class="portfolio-title">SalesBoard Analytics</h3>
+          <p class="portfolio-desc">Real-time sales dashboard with drill-down reports, multi-currency support, and PDF export for executive teams.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ SERVICES -->
+<section id="services" class="section-pad">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-eyebrow">What I offer</p>
+      <h2 class="section-title">Services</h2>
+      <p class="section-sub">From MVP to production-grade — I help startups and enterprises build software that scales.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="service-icon"><i class="bi bi-code-slash"></i></div>
+        <h3 class="service-title">Web Development</h3>
+        <p class="service-desc">Full-stack web applications using React, Next.js, Node.js, PHP, and MySQL. From landing pages to complex SaaS platforms.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="service-icon" style="background:rgba(255,107,107,0.1)"><i class="bi bi-vector-pen" style="color:var(--accent)"></i></div>
+        <h3 class="service-title">UI/UX Design</h3>
+        <p class="service-desc">User-centered design in Figma: wireframes, interactive prototypes, design systems, and usability testing.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="service-icon" style="background:rgba(34,197,94,0.1)"><i class="bi bi-phone" style="color:#22c55e"></i></div>
+        <h3 class="service-title">Mobile Apps</h3>
+        <p class="service-desc">Cross-platform iOS & Android apps with React Native and Expo. Backend integration with REST and GraphQL APIs.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="60">
+        <div class="service-icon" style="background:rgba(56,189,248,0.1)"><i class="bi bi-cloud-arrow-up" style="color:#38bdf8"></i></div>
+        <h3 class="service-title">DevOps &amp; Cloud</h3>
+        <p class="service-desc">CI/CD pipelines, Docker containerisation, AWS deployment, and performance monitoring for production systems.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="120">
+        <div class="service-icon" style="background:rgba(255,184,0,0.1)"><i class="bi bi-graph-up-arrow" style="color:#FFB800"></i></div>
+        <h3 class="service-title">SEO &amp; Performance</h3>
+        <p class="service-desc">Technical SEO audits, Core Web Vitals optimisation, and Lighthouse score improvements to boost organic traffic.</p>
+      </div>
+
+      <div class="service-card" data-aos="fade-up" data-aos-delay="180">
+        <div class="service-icon" style="background:rgba(167,139,250,0.1)"><i class="bi bi-people" style="color:#a78bfa"></i></div>
+        <h3 class="service-title">Consulting</h3>
+        <p class="service-desc">Technical strategy, architecture reviews, code audits, and mentorship for development teams and early-stage founders.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ TESTIMONIALS -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up" style="align-items:center">
+      <p class="section-eyebrow">Social proof</p>
+      <h2 class="section-title">What clients say</h2>
+    </div>
+
+    <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="120">
+      <div class="testimonials-track">
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"ThankGod delivered a housing platform in 6 weeks that exceeded every expectation. The code quality, the design, the attention to edge cases — exceptional. He's the kind of developer you rehire for every project."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">OM</div>
+              <div>
+                <p class="testimonial-name">Obinna M.</p>
+                <p class="testimonial-role">CEO, PropLink Nigeria</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Working with ThankGod felt like having a senior CTO on the team. He didn't just write code — he challenged assumptions, proposed better architectures, and shipped on time. Truly impressive."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SF</div>
+              <div>
+                <p class="testimonial-name">Sarah F.</p>
+                <p class="testimonial-role">Founder, AgriConnect</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Our Lighthouse score went from 42 to 96 after ThankGod's performance audit. He also redesigned our checkout flow and conversion immediately jumped 22%. Genuinely one of the best hires we've ever made."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">KA</div>
+              <div>
+                <p class="testimonial-name">Kolade A.</p>
+                <p class="testimonial-role">CTO, ShopWave</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="slider-nav">
+        <button class="slider-arrow" id="slider-prev" aria-label="Previous">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <div class="slider-dots">
+          <button class="slider-dot active" aria-label="Slide 1"></button>
+          <button class="slider-dot" aria-label="Slide 2"></button>
+          <button class="slider-dot" aria-label="Slide 3"></button>
+        </div>
+        <button class="slider-arrow" id="slider-next" aria-label="Next">
+          <i class="bi bi-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ BLOG -->
+<section id="blog" class="section-pad">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-eyebrow">Thinking out loud</p>
+      <h2 class="section-title">Latest articles</h2>
+      <p class="section-sub">Practical deep-dives on development, design, and building products people use.</p>
+    </div>
+
+    <div class="blog-grid">
+
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="80">
+        <div class="blog-thumb">
+          <i class="bi bi-database-check"></i>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-cat">PHP &amp; MySQL</span>
+            <span class="blog-date">June 10, 2026</span>
+          </div>
+          <h3 class="blog-title">PDO Best Practices Every PHP Developer Should Know</h3>
+          <p class="blog-excerpt">How to handle prepared statements, binding types, and error modes so your database layer is both secure and maintainable.</p>
+          <a href="blog/pdo-best-practices.html" class="blog-read-more">
+            Read article <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="160">
+        <div class="blog-thumb">
+          <i class="bi bi-rulers"></i>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-cat">UI Design</span>
+            <span class="blog-date">May 28, 2026</span>
+          </div>
+          <h3 class="blog-title">Why Most Design Systems Fail (and What to Do Instead)</h3>
+          <p class="blog-excerpt">Lessons from building Bloom — the component library that actually got adopted by four product teams after the previous one failed.</p>
+          <a href="blog/design-systems.html" class="blog-read-more">
+            Read article <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-aos="fade-up" data-aos-delay="240">
+        <div class="blog-thumb">
+          <i class="bi bi-speedometer2"></i>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta">
+            <span class="blog-cat">Performance</span>
+            <span class="blog-date">May 12, 2026</span>
+          </div>
+          <h3 class="blog-title">From 42 to 96: A Lighthouse Score Rescue Story</h3>
+          <p class="blog-excerpt">A real-world case study on image optimisation, layout shift, render-blocking resources, and the five changes that moved the needle most.</p>
+          <a href="blog/lighthouse-optimisation.html" class="blog-read-more">
+            Read article <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px" data-aos="fade-up">
+      <a href="blog/index.html" class="btn-outline">
+        <i class="bi bi-journal-text"></i> View all articles
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ CONTACT -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-eyebrow">Let's work together</p>
+      <h2 class="section-title">Get in touch</h2>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div data-aos="fade-right">
+        <div class="contact-info">
+          <h3>I'd love to hear about your project</h3>
+          <p>Whether you're building something new, scaling what already exists, or just need a second pair of expert eyes — drop me a message and I'll get back to you within 24 hours.</p>
+        </div>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <p class="contact-item-label">Location</p>
+              <p class="contact-item-value">Lagos, Nigeria · Remote Worldwide</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <p class="contact-item-label">Email</p>
+              <p class="contact-item-value">talktougwaibb@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
+            <div>
+              <p class="contact-item-label">WhatsApp</p>
+              <p class="contact-item-value">+234 816 027 4862</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <p class="contact-item-label">Response time</p>
+              <p class="contact-item-value">Usually within 2 hours</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-socials">
+          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div data-aos="fade-left">
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cf-name">Your name</label>
+              <input class="form-input" id="cf-name" name="name" type="text" placeholder="Enter your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-email">Email address</label>
+              <input class="form-input" id="cf-email" name="email" type="email" placeholder="Enter your email" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-subject">Subject</label>
+            <input class="form-input" id="cf-subject" name="subject" type="text" placeholder="Project enquiry" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="cf-msg">Message</label>
+            <textarea class="form-textarea" id="cf-msg" name="message" placeholder="Tell me about your project, timeline, and budget…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center">
+            <i class="bi bi-send"></i> Send Message
+          </button>
+          <p id="form-msg" style="margin-top:12px;font-size:14px;text-align:center"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================ FOOTER -->
+<footer id="footer">
+  <div class="container footer-inner">
+    <span class="footer-logo">&lt;<span>AR</span>/&gt;</span>
+    <p class="footer-copy">© 2026 Sule ThankGod · Crafted with ❤️ and strong coffee</p>
+    <div class="footer-socials">
+      <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+      <a href="#" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-top" aria-label="Back to top">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

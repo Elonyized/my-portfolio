@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Most Design Systems Fail · Sule ThankGod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .post-hero { padding: calc(var(--nav-h) + 64px) 0 48px; }
+    .post-hero .section-eyebrow { margin-bottom:16px; }
+    .post-hero h1 { font-family:var(--display); font-size:clamp(28px,4vw,52px); font-weight:700; letter-spacing:-1.5px; line-height:1.1; max-width:760px; }
+    .post-meta { display:flex; align-items:center; gap:20px; margin-top:20px; color:var(--muted); font-size:14px; flex-wrap:wrap; }
+    .post-body { max-width:720px; margin:0 auto; padding: 0 24px 80px; }
+    .post-body h2 { font-family:var(--display); font-size:24px; font-weight:700; letter-spacing:-0.5px; margin:48px 0 16px; }
+    .post-body p { color:var(--muted); line-height:1.85; margin-bottom:20px; }
+    .post-body code { font-family:var(--mono); font-size:13px; background:var(--surface); padding:2px 8px; border-radius:4px; color:var(--primary); }
+    .post-body blockquote { border-left:3px solid var(--primary); padding:4px 24px; margin:32px 0; font-family:var(--display); font-size:19px; font-weight:500; color:var(--text); letter-spacing:-0.3px; }
+    .post-body ul, .post-body ol { color:var(--muted); padding-left:20px; margin-bottom:20px; }
+    .post-body li { margin-bottom:8px; line-height:1.75; }
+    .post-divider { border:none; border-top:1px solid var(--border); margin:48px 0; }
+    .related-posts { padding:0 0 80px; }
+    .related-posts h3 { font-family:var(--display); font-size:22px; font-weight:700; letter-spacing:-0.5px; margin-bottom:32px; }
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="nav-logo">&lt;<span>AR</span>/&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle theme"><i class="bi bi-sun"></i></button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="mobile-nav" id="mobile-nav">
+  <button class="mobile-nav-close" id="mobile-nav-close"><i class="bi bi-x-lg"></i></button>
+  <a href="../index.html">Home</a>
+  <a href="index.html">Blog</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<div class="post-hero">
+  <div class="container">
+    <p class="section-eyebrow">UI Design</p>
+    <h1>Why Most Design Systems Fail (and What to Do Instead)</h1>
+    <div class="post-meta">
+      <span><i class="bi bi-calendar3"></i> May 28, 2026</span>
+      <span><i class="bi bi-clock"></i> 7 min read</span>
+      <span><i class="bi bi-person"></i> Sule ThankGod</span>
+    </div>
+  </div>
+</div>
+
+<article class="post-body">
+  <p>Most design systems get built once, celebrated in a launch announcement, and then quietly ignored within six months. Engineers route around the components because they're "easier to just rebuild," and designers stop referencing the library because it never quite matches what they need. I've seen this happen twice from the inside before I understood why.</p>
+
+  <p>The third attempt — what became <strong>Bloom</strong>, a 180-component system now used by four product teams — survived because we changed almost nothing about the components and almost everything about how the system was built and maintained.</p>
+
+  <h2>1. The system was designed by committee, for nobody</h2>
+  <p>The first version tried to satisfy every team's preferences simultaneously. The result was a button component with fourteen variants, most of which existed because one designer once asked for them. Nobody used more than three. Optionality felt generous but actually made the system harder to learn and easier to ignore.</p>
+  <p>Bloom shipped with one button, one input, one card — each with a small, deliberate set of states. Adding a variant required a real use case, not a hypothetical one.</p>
+
+  <h2>2. Documentation was an afterthought</h2>
+  <p>A component without usage guidance is just a component nobody trusts. The second attempt had a Figma file and nothing else — no prop tables, no do/don't examples, no rationale. Engineers guessed at intent and got it wrong constantly, which eroded confidence in the whole system.</p>
+  <p>Every Bloom component ships with three things: a live coded example, a written rationale for why it looks the way it does, and explicit anti-patterns — what not to do and why.</p>
+
+  <blockquote>A design system isn't a component library. It's a set of agreements, and agreements only work if people understand why they exist.</blockquote>
+
+  <h2>3. There was no owner after launch</h2>
+  <p>Design systems decay the moment nobody is accountable for them. The first two attempts had a "launch team" that disbanded after shipping v1. Six months later nobody knew who could approve a new component, so teams just built their own instead.</p>
+  <p>Bloom has a standing two-person team with dedicated time each sprint. Every new component request goes through a short, public review — not because we love process, but because an unowned system is a dead system within a year.</p>
+
+  <h2>4. It optimised for completeness instead of adoption</h2>
+  <p>It's tempting to build every component you can imagine before calling something v1. That's backwards. We shipped Bloom with eleven components — covering 80% of real screens already in production — and grew it based on actual requests from teams trying to use it, not speculative ones.</p>
+
+  <h2>What actually made teams adopt it</h2>
+  <ul>
+    <li>A small, opinionated core instead of an exhaustive, optional one</li>
+    <li>Documentation that explains <em>why</em>, not just <em>how</em></li>
+    <li>A named, funded owner — not a side project</li>
+    <li>Growth driven by real usage, not anticipated need</li>
+    <li>Migration support — we helped teams adopt it instead of just announcing it existed</li>
+  </ul>
+
+  <h2>Key takeaways</h2>
+  <ul>
+    <li>Fewer, better-defined components beat exhaustive variant coverage.</li>
+    <li>Document the reasoning, not just the API.</li>
+    <li>A design system needs an ongoing owner, not a launch team.</li>
+    <li>Ship a small core early and grow it from real demand.</li>
+  </ul>
+
+  <hr class="post-divider" />
+
+  <p style="text-align:center">
+    <a href="../index.html#contact" class="btn-primary" style="display:inline-flex">
+      <i class="bi bi-chat-dots"></i> Building a design system? Let's talk
+    </a>
+  </p>
+</article>
+
+<!-- Related posts -->
+<div class="container related-posts">
+  <h3>Related articles</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-database-check"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">PHP &amp; MySQL</span><span class="blog-date">June 10, 2026</span></div>
+        <h3 class="blog-title">PDO Best Practices Every PHP Developer Should Know</h3>
+        <a href="pdo-best-practices.html" class="blog-read-more">Read <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <div class="blog-thumb"><i class="bi bi-speedometer2"></i></div>
+      <div class="blog-content">
+        <div class="blog-meta"><span class="blog-cat">Performance</span><span class="blog-date">May 12, 2026</span></div>
+        <h3 class="blog-title">From 42 to 96: Lighthouse Rescue</h3>
+        <a href="lighthouse-optimisation.html" class="blog-read-more">Read <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<footer id="footer">
+  <div class="container footer-inner">
+    <span class="footer-logo">&lt;<span>AR</span>/&gt;</span>
+    <p class="footer-copy">© 2026 Sule ThankGod</p>
+    <div class="footer-socials">
+      <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button id="back-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
